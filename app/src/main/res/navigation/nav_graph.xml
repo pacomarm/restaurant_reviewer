@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.reviewer.HomeController"
+        android:label="@string/home_label"
+        tools:layout="@layout/home_fragment">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_reviewsActivity"
+            app:destination="@id/reviewsActivity" />
+        <action
+            android:id="@+id/action_FirstFragment_to_RestaurantActivity"
+            app:destination="@id/RestaurantActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewsActivity"
+        android:name="com.example.reviewer.ReviewsController"
+        android:label="ReviewsActivity"
+        tools:layout="@layout/reviews_layout">
+        <action
+            android:id="@+id/action_reviewsActivity_to_reviewsAddActivity"
+            app:destination="@id/reviewsAddActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewsAddActivity"
+        android:name="com.example.reviewer.ReviewsAddController"
+        android:label="ReviewsAddActivity"
+        tools:layout="@layout/reviews_add_layout" >
+        <action
+            android:id="@+id/action_reviewsAddActivity_to_reviewsActivity2"
+            app:destination="@id/reviewsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/RestaurantActivity"
+        android:name="com.example.reviewer.RestaurantsController"
+        android:label="RestaurantActivity"
+        tools:layout="@layout/restaurants_layout">
+        <action
+            android:id="@+id/action_RestaurantActivity_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+</navigation>

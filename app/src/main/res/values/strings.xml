@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Reviewer</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="home_label">Home</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+
+    <string name="mainTitle">Restaurant Reviewer</string>
+    <string name="mainSub">Rate your favorite restaurants!</string>
+    <string name="mainRes">Add Restaurants</string>
+    <string name="mainRev">Reviews</string>
+
+    <string name="revAdd">Add Review</string>
+
+</resources>
