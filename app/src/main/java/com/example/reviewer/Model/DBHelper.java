@@ -1,5 +1,6 @@
 package com.example.reviewer.Model;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,12 +16,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-        DB.execSQL("create Table Review(reviewID TEXT primary key)");
+        DB.execSQL("create Table Restaurants(restaurantName TEXT primary key, owner TEXT, cuisine TEXT, city TEXT, country TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
-
+        DB.execSQL("drop Table if exists Restaurants");
     }
 
     public Cursor getReviews(){
@@ -39,16 +40,28 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getRestaurants(){
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select * from Reviewer", null);
+        Cursor cursor = DB.rawQuery("Select * from Restaurants", null);
         return cursor;
     }
 
     public Boolean insertRestaurant(String restaurantName, String owner, String cuisine, String city, String country){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("restaurantName", restaurantName);
+        values.put("owner", owner);
+        values.put("cuisine", cuisine);
+        values.put("city", city);
+        values.put("country", country);
+        long result = DB.insert("Restaurants", null, values);
+        if(result==-1)
+            return false;
         return true;
     }
-
+    /*
     public Boolean deleteRestaurant(String restaurantName){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Reviewer", null);
         return true;
     }
-
+    */
 }
