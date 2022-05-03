@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class ReviewsController extends Activity {
 
+    // Attributes of the ReviewsController Class
     DBHelper DB;
     ArrayList<Review> listReviews;
     RecyclerView recycler;
@@ -27,25 +28,27 @@ public class ReviewsController extends Activity {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.reviews_layout);
         DB = new DBHelper(this);
-        // Initialize recycler
+        // Initialize recycler component
         recycler = (RecyclerView) findViewById(R.id.recyclerId);
         recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         listReviews = new ArrayList<>();
         //
-        try {
+        try { // Try to populate recycle view with the list of reviews from the database
             listReviews = getReviews();
             ReviewsAdapter adapter = new ReviewsAdapter(listReviews);
             recycler.setAdapter(adapter);
-        } catch (ParseException e) {
+        } catch (ParseException e) { // Error occurs
             Toast.makeText(ReviewsController.this,"Error getting Reviews", Toast.LENGTH_SHORT).show();
         }
     }
 
+    // Method to go to the AddReview Page
     public void goAddReview(View view){
         Intent intent = new Intent(this, ReviewsAddController.class);
         startActivity(intent);
     }
 
+    // Method to get the list of reviews from the DBHelper
     public ArrayList<Review> getReviews() throws ParseException {
         Cursor data = DB.getReviews();
         if(data.getCount()==0){
@@ -59,13 +62,10 @@ public class ReviewsController extends Activity {
                     Integer.parseInt(data.getString(3)), Integer.parseInt(data.getString(4)),
                     data.getString(5).equals("Recommended")));
         }
-        /*
-        for(Review r: list){
-            System.out.println(r.getReviewId()+ " "+ r.getRestaurantName()+r.isRecommended());
-        }*/
         return list;
     }
 
+    // Method to go to the Home Page
     public void goHome(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

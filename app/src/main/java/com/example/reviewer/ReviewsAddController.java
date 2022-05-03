@@ -20,11 +20,12 @@ import java.util.List;
 
 public class ReviewsAddController extends Activity {
 
+    // Defining the attributes of the class
     DBHelper DB;
-    Spinner restaurantsSelector;
-    EditText foodScore, serviceScore, date, recommended;
+    Spinner restaurantsSelector; // restaurant selector attribute
+    EditText foodScore, serviceScore, date, recommended; // EditText attributes of the TextFields in the Add Review View
     String restaurantName;
-    Button addButton, cancel;
+    Button addButton, cancel; // Definition of the buttons on the view
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +36,17 @@ public class ReviewsAddController extends Activity {
         restaurantsSelector = (Spinner) findViewById(R.id.restaurantSelector);
         ArrayList<String> restaurants = getRestaurants();
         restaurants.add(0, "Select One");
+        // Setting styles of the restaurant Selector
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, restaurants);
         restaurantsSelector.setAdapter(adapter);
+        // Listener to listen to selection of restaurant
         restaurantsSelector.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            // Method to trigger when a restaurant is selected
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
                 restaurantName = parent.getItemAtPosition(position).toString();
             }
+            // Method to trigger when nothing happens
             @Override
             public void onNothingSelected(AdapterView<?> parent){
 
@@ -54,16 +59,17 @@ public class ReviewsAddController extends Activity {
         serviceScore = findViewById(R.id.serviceScore);
         date = findViewById(R.id.date);
         recommended = findViewById(R.id.recommended);
-        // listeners
+        // defining listener to addButton
         addButton.setOnClickListener(new View.OnClickListener(){
+            // On click Method to add a review
             @Override
             public void onClick(View view){
                 Boolean insertion = DB.insertReview(restaurantName, date.getText().toString(),
                         foodScore.getText().toString(), serviceScore.getText().toString(),
                         recommended.getText().toString());
-                if(!insertion)
+                if(!insertion) // If error occurred inserting
                     Toast.makeText(ReviewsAddController.this, "Error occurred :(", Toast.LENGTH_LONG).show();
-                else{
+                else{ // if successful
                     EditText[] arr = {foodScore, serviceScore, date, recommended};
                     clearFields(arr);
                     AlertDialog.Builder builder = new AlertDialog.Builder(ReviewsAddController.this);
@@ -76,6 +82,7 @@ public class ReviewsAddController extends Activity {
         });
     }
 
+    // Clear all fields on the View
     public void clearFields(EditText[] arr){
         for(EditText text: arr){
             text.setText("");
@@ -84,13 +91,8 @@ public class ReviewsAddController extends Activity {
         restaurantsSelector.setSelection(0);
     }
 
-    public void onClickRes(View view){
-        if (view.getId() == R.id.button_revBack){
-            Intent intent = new Intent(this, ReviewsController.class);
-            startActivity(intent);
-        }
-    }
-
+    // Method to get the restaurants from the DBHelper class
+    // You will get an array list of strings, just with name of restaurant
     public ArrayList<String> getRestaurants(){
         Cursor data = DB.getRestaurants();
         if(data.getCount()==0){
@@ -104,6 +106,7 @@ public class ReviewsAddController extends Activity {
         return list;
     }
 
+    // Method to go to the Reviews view
     public void goToReviews(View view){
         Intent intent = new Intent(this, ReviewsController.class);
         startActivity(intent);

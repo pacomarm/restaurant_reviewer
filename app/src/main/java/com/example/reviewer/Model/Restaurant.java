@@ -2,12 +2,14 @@ package com.example.reviewer.Model;
 
 public class Restaurant {
 
+    // Defining the attributes of a Restaurant Object
     private String restaurantName;
     private String owner;
     private String cuisine;
     private String city;
     private String country;
 
+    // Constructor of the restaurant class
     public Restaurant(String restaurantName, String owner, String cuisine, String city, String country) {
         this.restaurantName = restaurantName;
         this.owner = owner;
@@ -16,6 +18,7 @@ public class Restaurant {
         this.country = country;
     }
 
+    // Setters ang getters of all attributes of a restaurant Object
     public String getRestaurantName() {
         return restaurantName;
     }
@@ -55,4 +58,5 @@ public class Restaurant {
     public void setCountry(String country) {
         this.country = country;
     }
+    // End setters and getters
 }

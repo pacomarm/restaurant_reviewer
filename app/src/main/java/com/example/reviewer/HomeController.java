@@ -13,8 +13,11 @@ import com.example.reviewer.databinding.HomeFragmentBinding;
 
 public class HomeController extends Fragment {
 
-    private HomeFragmentBinding binding;
+    // Controller class for the Home View
 
+    private HomeFragmentBinding binding; // Binding attribute to the HomeFragment
+
+    // Overriding this method to create and bind the corresponding HomeView with this controller
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -26,9 +29,11 @@ public class HomeController extends Fragment {
 
     }
 
+    // Method called right after onCreateView
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Setting an on click listener to the buttonReviews button, to move to the Reviews View
         binding.buttonReviews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +45,7 @@ public class HomeController extends Fragment {
             }
         });
 
+        // Setting an on click listener to the buttonRestaurants button, to move to the Restaurants View
         binding.buttonRestaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +58,7 @@ public class HomeController extends Fragment {
 
     }
 
+    // Method ran when the view is destroyed, removing the binding.
     @Override
     public void onDestroyView() {
         super.onDestroyView();

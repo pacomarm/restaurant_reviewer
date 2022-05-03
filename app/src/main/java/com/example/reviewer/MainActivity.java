@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     DBHelper DB;
 
+    // Method ran when app runs initially
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,16 +68,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-//    public void onClickGo(View view){
-//        if (view.getId() == R.id.button_reviews ){
-//            Intent intent = new Intent(this, ReviewsActivity.class);
-//            startActivity(intent);
-//        }
-//        if (view.getId() == R.id.button_restaurants ){
-//            Intent intent = new Intent(this, ReviewsActivity.class);
-//            startActivity(intent);
-//        }
-//    }
 
 }

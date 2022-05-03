@@ -3,11 +3,14 @@ package com.example.reviewer.Model;
 import java.util.Date;
 
 public class Review {
+
+    // Defining the attributes of a Review Object
     private String reviewId, restaurantName;
     private Date date;
     private int foodScore, serviceScore;
     private boolean recommended;
 
+    // Constructor of the Review class
     public Review(String reviewId, String restaurantName, Date date, int foodScore, int serviceScore, boolean recommended) {
         this.reviewId = reviewId;
         this.restaurantName = restaurantName;
@@ -17,6 +20,7 @@ public class Review {
         this.recommended = recommended;
     }
 
+    // Setters and getters of the Review attributes
     public String getReviewId() {
         return reviewId;
     }
@@ -64,4 +68,5 @@ public class Review {
     public void setRecommended(boolean recommended) {
         this.recommended = recommended;
     }
+    // end of setters and getters
 }
