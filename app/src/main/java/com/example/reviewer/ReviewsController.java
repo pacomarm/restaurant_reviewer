@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.reviewer.Model.DBHelper;
 import com.example.reviewer.Model.Review;
 
@@ -19,13 +22,22 @@ import java.util.List;
 public class ReviewsController extends Activity {
 
     DBHelper DB;
+    ArrayList<Review> listReviews;
+    RecyclerView recycler;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.reviews_layout);
         DB = new DBHelper(this);
+        // Initialize recycler
+        recycler = (RecyclerView) findViewById(R.id.recyclerId);
+        recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        listReviews = new ArrayList<>();
+        //
         try {
-            getReviews();
+            listReviews = getReviews();
+            AdapterDatos adapter = new AdapterDatos(listReviews);
+            recycler.setAdapter(adapter);
         } catch (ParseException e) {
             Toast.makeText(ReviewsController.this,"Error getting Reviews", Toast.LENGTH_SHORT).show();
         }
