@@ -15,23 +15,7 @@
         android:text="Final Decision"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName7"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
-        android:layout_width="172dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="28dp"
-        android:ems="10"
-        android:hint="Recommend Or Not"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView16"
@@ -42,23 +26,9 @@
         android:text="Date"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textView17"
-        app:layout_constraintEnd_toStartOf="@+id/editTextDate"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.067" />
-
-    <EditText
-        android:id="@+id/country"
-        android:layout_width="172dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="28dp"
-        android:ems="10"
-        android:hint="1-10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city" />
 
     <TextView
         android:id="@+id/textView4"
@@ -66,10 +36,8 @@
         android:layout_height="31dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="13dp"
         android:text="Service Quality"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/country"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -93,14 +61,15 @@
         android:layout_height="33dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="#D1372B"
-        android:text="@string/cancel"
+        android:onClick="goToReviews"
+        android:text="Back"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_revBack3"
+        android:id="@+id/addReview"
         android:layout_width="166dp"
         android:layout_height="49dp"
         android:layout_marginBottom="88dp"
@@ -125,42 +94,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/city"
-        android:layout_width="172dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="28dp"
-        android:ems="10"
-        android:hint="1-10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="174dp"
         android:layout_height="31dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="188dp"
-        android:layout_marginEnd="13dp"
         android:text="Food Quality:"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/city"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="172dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="28dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/country" />
 
     <Spinner
         android:id="@+id/restaurantSelector"
@@ -170,5 +113,55 @@
         android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/serviceScore"
+        android:layout_width="184dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="1-10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodScore" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="184dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="MM/DD/YY"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serviceScore" />
+
+    <EditText
+        android:id="@+id/recommended"
+        android:layout_width="184dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="Recommended Or Not"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date"
+        app:layout_constraintVertical_bias="0.008" />
+
+    <EditText
+        android:id="@+id/foodScore"
+        android:layout_width="184dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="1-10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantSelector" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

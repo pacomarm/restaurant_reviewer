@@ -160,7 +160,7 @@
             android:layout_weight="1"
             android:backgroundTint="#D1372B"
             android:onClick="goHome"
-            android:text="@string/cancel"
+            android:text="Back"
             android:textSize="10sp" />
     </LinearLayout>
 
