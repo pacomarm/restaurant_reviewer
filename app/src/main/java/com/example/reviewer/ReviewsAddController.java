@@ -62,11 +62,15 @@ public class ReviewsAddController extends Activity {
                         foodScore.getText().toString(), serviceScore.getText().toString(),
                         recommended.getText().toString());
                 if(!insertion)
-                    Toast.makeText(ReviewsAddController.this, "Error occurred :(", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReviewsAddController.this, "Error occurred :(", Toast.LENGTH_LONG).show();
                 else{
                     EditText[] arr = {foodScore, serviceScore, date, recommended};
                     clearFields(arr);
-                    Toast.makeText(ReviewsAddController.this, "Review Added", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ReviewsAddController.this);
+                    builder.setCancelable(true);
+                    builder.setTitle("Success");
+                    builder.setMessage("Review Added");
+                    builder.show();
                 }
             }
         });
@@ -90,29 +94,14 @@ public class ReviewsAddController extends Activity {
     public ArrayList<String> getRestaurants(){
         Cursor data = DB.getRestaurants();
         if(data.getCount()==0){
-            Toast.makeText(ReviewsAddController.this, "No Restaurants Available", Toast.LENGTH_SHORT);
+            Toast.makeText(ReviewsAddController.this, "No Restaurants Available", Toast.LENGTH_LONG);
             return new ArrayList<String>();
         }
-        //StringBuffer buffer = new StringBuffer();
         ArrayList list = new ArrayList();
         while(data.moveToNext()){
-            /*
-            buffer.append("Restaurant Name: " + data.getString(0) + "\n");
-            buffer.append("Owner: " + data.getString(1) + "\n");
-            buffer.append("Cuisine: " + data.getString(2) + "\n");
-            buffer.append("City: " + data.getString(3) + "\n");
-            buffer.append("Country: " + data.getString(4) + "\n\n");
-            */
             list.add(data.getString(0));
         }
         return list;
-        /*
-        AlertDialog.Builder builder = new AlertDialog.Builder(ReviewsAddController.this);
-        builder.setCancelable(true);
-        builder.setTitle("Restaurants");
-        builder.setMessage(buffer.toString());
-        builder.show();
-        */
     }
 
     public void goToReviews(View view){

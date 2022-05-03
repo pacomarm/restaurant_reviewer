@@ -13,11 +13,11 @@ import com.example.reviewer.Model.Review;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDatos> {
+public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ViewHolderDatos> {
 
     ArrayList<Review> listReviews;
 
-    public AdapterDatos(ArrayList<Review> listReviews) {
+    public ReviewsAdapter(ArrayList<Review> listReviews) {
         this.listReviews = listReviews;
     }
 
@@ -56,8 +56,8 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             restaurantName.setText(review.getRestaurantName());
             System.out.println(review.getDate());
             date.setText(new SimpleDateFormat("MM-dd-yyyy").format(review.getDate()));
-            foodScore.setText(Integer.toString(review.getFoodScore()));
-            serviceScore.setText(Integer.toString(review.getServiceScore()));
+            foodScore.setText("Food Score: " + Integer.toString(review.getFoodScore()));
+            serviceScore.setText("Service Score: " + Integer.toString(review.getServiceScore()));
             recommended.setText(review.isRecommended() ? "Recommended" : "Not Recommended");
         }
     }

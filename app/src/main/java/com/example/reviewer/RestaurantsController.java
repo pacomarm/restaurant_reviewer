@@ -1,6 +1,7 @@
 package com.example.reviewer;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +40,12 @@ public class RestaurantsController extends Activity {
                 if(insertion){
                     EditText[] arr = {name, owner, cuisine, city, country};
                     clearFields( arr);
-                    Toast.makeText(RestaurantsController.this, "Restaurant Added", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantsController.this);
+                    builder.setCancelable(true);
+                    builder.setTitle("Success");
+                    builder.setMessage("Restaurant Added");
+                    builder.show();
+                    //Toast.makeText(RestaurantsController.this, "Restaurant Added", Toast.LENGTH_SHORT).show();
                 }
                 else
                     Toast.makeText(RestaurantsController.this, "Error occurred :(", Toast.LENGTH_SHORT).show();
@@ -64,8 +70,14 @@ public class RestaurantsController extends Activity {
         Boolean insertion = DB.insertRestaurant(name.getText().toString(),
                 owner.getText().toString(), cuisine.getText().toString(),
                 city.getText().toString(), country.getText().toString());
-        if(insertion)
-            Toast.makeText(RestaurantsController.this, "Restaurant Added", Toast.LENGTH_SHORT).show();
+        if(insertion){
+            AlertDialog.Builder builder = new AlertDialog.Builder(RestaurantsController.this);
+            builder.setCancelable(true);
+            builder.setTitle("Success");
+            builder.setMessage("Restaurant Added");
+            builder.show();
+            //Toast.makeText(RestaurantsController.this, "Restaurant Added", Toast.LENGTH_SHORT).show();
+        }
         else
             Toast.makeText(RestaurantsController.this, "Error occurred :(", Toast.LENGTH_SHORT).show();
     }

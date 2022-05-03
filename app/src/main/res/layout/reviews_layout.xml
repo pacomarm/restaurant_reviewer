@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Reviews"
@@ -18,7 +18,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_addRev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="goAddReview"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </LinearLayout>

@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/home_constraint_layout.xml" value="0.459375" />
+        <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/home_fragment.xml" value="0.459375" />
         <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/home_layout.xml" value="0.296875" />
-        <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/item_list.xml" value="0.459375" />
+        <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/item_list.xml" value="0.4438916528468767" />
         <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/restaurants_layout.xml" value="0.296875" />
         <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/review_content.xml" value="0.296875" />
         <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/reviews_add_layout.xml" value="0.33" />
-        <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/reviews_layout.xml" value="0.5" />
+        <entry key="..\:/Users/163466/projects/restaurant_reviewer/app/src/main/res/layout/reviews_layout.xml" value="0.25" />
         <entry key="..\:/Users/fmarmole/AndroidStudioProjects/Reviewer/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/fmarmole/AndroidStudioProjects/Reviewer/app/src/main/res/layout/add_review_activity.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/fmarmole/AndroidStudioProjects/Reviewer/app/src/main/res/layout/content_main.xml" value="0.358695652173913" />
